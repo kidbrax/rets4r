@@ -11,7 +11,7 @@ module RETS4R
           first_child = doc.xpath('/RETS/RETS-RESPONSE')[0] ? doc.xpath('/RETS/RETS-RESPONSE')[0] : doc.xpath('/RETS')[0]
           unless first_child.nil?
             parsed = {}
-            first_child.text.each do |line|
+            first_child.text.each_line do |line|
               (key, value) = line.strip.split('=')
               key.strip! if key
               value.strip! if value
